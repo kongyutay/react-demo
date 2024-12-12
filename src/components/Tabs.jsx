@@ -33,10 +33,10 @@
 
     如果直接使用，会当作已经存在的html标签，会解析出错
 
-    所以中级的解决放在你是可以直接设置大字母的props
+    所以中级的解决放在你是可以直接设置大字母的props，也可以添加默认参数
     */
 
-export default function Tabs({ children, buttons, ButtonsContainer }) {
+export default function Tabs({ children, buttons, ButtonsContainer = "menu" }) {
     // const ButtonsContainer = buttonsContainer;
     return (
         <>
