@@ -2,6 +2,7 @@ import { useState } from "react";
 import { EXAMPLES } from "../data";
 import Section from "./Section";
 import TabButton from "./TabButton";
+import Tabs from "./Tabs";
 
 export default function Examples() {
     // 当selectedTopic发生变化的时候整个App都会重新渲染，会导致Header component也重新执行渲染
@@ -28,33 +29,38 @@ export default function Examples() {
     }
     return (
         <Section title="Examples" id="examples">
-            <menu>
-                <TabButton
-                    isSelected={selectedTopic === "components"}
-                    onClick={() => handleSelect("components")}
-                >
-                    Components
-                </TabButton>
-                <TabButton
-                    isSelected={selectedTopic === "jsx"}
-                    onClick={() => handleSelect("jsx")}
-                >
-                    JSX
-                </TabButton>
-                <TabButton
-                    isSelected={selectedTopic === "props"}
-                    onClick={() => handleSelect("props")}
-                >
-                    Props
-                </TabButton>
-                <TabButton
-                    isSelected={selectedTopic === "state"}
-                    onClick={() => handleSelect("state")}
-                >
-                    State
-                </TabButton>
-            </menu>
-            {tabContent}
+            <Tabs
+                buttons={
+                    <>
+                        <TabButton
+                            isSelected={selectedTopic === "components"}
+                            onClick={() => handleSelect("components")}
+                        >
+                            Components
+                        </TabButton>
+                        <TabButton
+                            isSelected={selectedTopic === "jsx"}
+                            onClick={() => handleSelect("jsx")}
+                        >
+                            JSX
+                        </TabButton>
+                        <TabButton
+                            isSelected={selectedTopic === "props"}
+                            onClick={() => handleSelect("props")}
+                        >
+                            Props
+                        </TabButton>
+                        <TabButton
+                            isSelected={selectedTopic === "state"}
+                            onClick={() => handleSelect("state")}
+                        >
+                            State
+                        </TabButton>
+                    </>
+                }
+            >
+                {tabContent}
+            </Tabs>
         </Section>
     );
 }
