@@ -25,12 +25,22 @@
         >
             State
         </TabButton>
-    </menu>*/
+    </menu>
+    
+    2. 不能直接使用 buttonsContainer 作为组件来包裹 buttons，
+    是因为 buttonsContainer 可能是一个普通的 React 元素类型或字符串（比如 div 或 span），
+    而不是一个有效的 React 组件。
 
-export default function Tabs({ children, buttons }) {
+    如果直接使用，会当作已经存在的html标签，会解析出错
+
+    所以中级的解决放在你是可以直接设置大字母的props
+    */
+
+export default function Tabs({ children, buttons, ButtonsContainer }) {
+    // const ButtonsContainer = buttonsContainer;
     return (
         <>
-            <menu>{buttons}</menu>
+            <ButtonsContainer>{buttons}</ButtonsContainer>
             {children}
         </>
     );

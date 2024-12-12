@@ -29,7 +29,9 @@ export default function Examples() {
     }
     return (
         <Section title="Examples" id="examples">
+            {/* buttonsContainer 可以自定义要用的元素，如果是已经有的html元素就传string，如果是组件就使用{Section}的方式传入 */}
             <Tabs
+                ButtonsContainer="menu"
                 buttons={
                     <>
                         <TabButton
